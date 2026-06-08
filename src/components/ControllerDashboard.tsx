@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { DisplayState, ShowcaseImage } from "../types";
 import { loadState, saveState, subscribeState } from "../state";
-import { ChevronLeft, ChevronRight, Upload, Activity } from "lucide-react";
+import { ChevronLeft, ChevronRight, Upload, Activity, Bell } from "lucide-react";
 import { uploadToFirebase, signInAnonymouslyAndGetToken } from "../firebase";
 
-const BACK_URL = "https://gates.framer.website/zone-2-hz-kiosk-technology-page";
+const BACK_URL = "https://gates.framer.website/zone-2/zone-2-hz-kiosk-technology-page";
 
 export default function ControllerDashboard({ navigate }: { navigate: (path: string) => void }) {
   const [state, setState] = useState<DisplayState>(() => loadState());
@@ -196,13 +196,10 @@ export default function ControllerDashboard({ navigate }: { navigate: (path: str
         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
       </div>
 
-      <div className="absolute inset-x-0 top-[20%] z-20 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-3xl font-bold uppercase tracking-[0.25em] text-[#96f1c9]">MTU</h1>
-        <p className="mt-2 max-w-2xl text-sm text-white/80">Rapid Sanitation During Emergencies</p>
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="flex items-center gap-6 pointer-events-auto">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-6xl font-bold uppercase tracking-[0.25em] text-[#96f1c9]">CRT</h1>
+        <p className="mt-6 max-w-2xl mx-auto text-sm text-white/80 text-center">Self-Sufficient Sanitation Infrastructure.</p>
+        <div className="flex items-center gap-6 mt-4">
           <button
             onClick={triggerPrev}
             aria-label="Previous"
